@@ -1,1 +1,44 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@theme {
+  /* -------------------- */
+  /* Color Variable */
+  /* -------------------- */
+  /* Primary Color */
+  --color-primary: #6733ff;
+  --color-primaryDarker: #3400cc;
+  --color-primaryDark: #4000ff;
+  --color-primaryLight: #d9ccff;
+  --color-primaryLighter: #f7f5ff;
+
+  /* Background Color */
+  --color-background: #ffffff;
+  --color-backgroundSecondary: #fafafa;
+  --color-backgroundTertiary: #e2e4e9;
+  --color-backgroundQuarternary: #cbcccd;
+
+  /* Text Color */
+  --color-textHeader: #16181d;
+  --color-textParagraph: #323334;
+  --color-textBody: #7d7f81;
+  --color-textSubtle: #e5e5e6;
+  --color-textNeural: #ffffff;
+
+  /* BorderLine Color */
+  --color-borderLight: #e5e5e6;
+  --color-borderLighter: #e2e4e9;
+  --color-borderDark: #b399ff;
+
+  /* -------------------- */
+  /* Font Family */
+  /* -------------------- */
+  --font-urbanist: "Urbanist", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-urbanist);
+    background-color: var(--color-background);
+  }
+}
