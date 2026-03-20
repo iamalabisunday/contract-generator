@@ -1,80 +1,90 @@
-export default function FaqSection() {
-    // #region agent log
-    fetch('http://127.0.0.1:7840/ingest/783476b0-ecb3-43f0-b6aa-bc82e28b0e4a', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'b717b5' }, body: JSON.stringify({ sessionId: 'b717b5', runId: 'pre-debug', hypothesisId: 'H_faq_useMemo_useState', location: 'src/pages/Home/components/FaqSection.jsx', message: 'FaqSection function invoked (before useMemo/useState usage)', data: {}, timestamp: Date.now() }) }).catch(() => {});
-    // #endregion
-    const faqs = useMemo(
-      () => [
-        {
-          id: "what",
-          q: "What does Contract Generator do?",
-          a: "It drafts contract language and structured outlines based on your inputs, so you can review and customize faster.",
-        },
-        {
-          id: "edit",
-          q: "Can I edit the generated contract?",
-          a: "Yes. The output is meant to be reviewed section-by-section so you can refine the wording and details.",
-        },
-        {
-          id: "export",
-          q: "How do I use the output?",
-          a: "You can export the outline and then finalize it for your specific situation. Think of it as a starting draft.",
-        },
-        {
-          id: "pricing",
-          q: "Do I need a paid plan to start?",
-          a: "No. You can try the Starter plan first and upgrade when you want more structured options.",
-        },
-        {
-          id: "security",
-          q: "Is my data secure?",
-          a: "Your contract inputs should be handled securely. If you have specific compliance questions, contact us before using the tool.",
-        },
-      ],
-      [],
-    );
-  
-    const [openId, setOpenId] = useState(null);
-  
-    return (
-      <section className="bg-white py-16 sm:py-24">
-        <SectionHeading
-          kicker="FAQ"
-          title="Questions, answered"
-          subtitle="Quick answers about how Contract Generator works."
-        />
-  
-        <div className="mx-auto mt-10 max-w-3xl px-4">
-          <div className="space-y-4">
-            {faqs.map((faq) => {
-              const isOpen = openId === faq.id;
-              return (
-                <div
-                  key={faq.id}
-                  className="rounded-2xl border border-black/5 bg-white"
-                >
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-                    aria-expanded={isOpen}
-                    onClick={() => setOpenId(isOpen ? null : faq.id)}
-                  >
-                    <span className="text-sm font-bold text-[#16181D]">
-                      {faq.q}
-                    </span>
-                    <span className="text-[#6733ff] font-bold">
-                      {isOpen ? "-" : "+"}
-                    </span>
-                  </button>
-                  {isOpen ? (
-                    <div className="px-5 pb-4 text-sm text-[#7D7F81]">
-                      {faq.a}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    );
+import { useState } from "react";
+import { IoAddOutline, IoCloseOutline } from "react-icons/io5";
+
+const faqs = [
+  {
+    question: "Are the contracts legally binding?",
+    answer: "Yes! All our templates are reviewed by legal professionals and designed to be legally binding when properly executed. However, we recommend consulting with a lawyer for complex situations or high-value agreements."
+  },
+  {
+    question: "Can I customize the contracts?",
+    answer: "Absolutely. Our editor allows you to modify any clause, add custom terms, and tailor the agreement specifically to your needs."
+  },
+  {
+    question: "What formats can I download?",
+    answer: "You can download your finalized contracts in both PDF and Word (.docx) formats for easy sharing and further offline editing."
+  },
+  {
+    question: "Do you offer refunds?",
+    answer: "Yes, we offer a 14-day money-back guarantee if you're not fully satisfied with your contract generation experience."
+  },
+  {
+    question: "Can I use this for my business?",
+    answer: "ContractGen is specifically designed for freelancers, startups, and small to medium businesses to fulfill all their common contracting needs."
   }
+];
+
+export default function FaqSection() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggleOpen = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index);
+  };
+
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="mx-auto max-w-3xl flex flex-col items-center">
+        {/* Header */}
+        <div className="text-center mb-16 flex flex-col items-center">
+          <span className="bg-[#f7f5ff] text-primary text-[12px] tracking-wide font-medium px-3 py-1 rounded mb-5 shadow-sm">
+            FAQ
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-light text-textHeader mb-3 tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg text-textBody font-light">
+            Got questions? We've got answers
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <div className="w-full flex flex-col">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className={`overflow-hidden transition-colors duration-300 ${isOpen ? "bg-[#f4f4f5]" : "bg-white border-b border-borderLighter"
+                  } ${index === faqs.length - 1 && !isOpen ? "border-b-0" : ""}`}
+              >
+                <button
+                  className="w-full px-6 py-6 flex justify-between items-center text-left focus:outline-none cursor-pointer"
+                  onClick={() => toggleOpen(index)}
+                >
+                  <span className="text-xl font-light text-textHeader pr-4">
+                    {faq.question}
+                  </span>
+                  {isOpen ? (
+                    <IoCloseOutline className="text-textHeader text-2xl flex-shrink-0" />
+                  ) : (
+                    <IoAddOutline className="text-textHeader text-2xl flex-shrink-0" />
+                  )}
+                </button>
+
+                {/* Content */}
+                <div
+                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 pb-8 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                >
+                  <p className="text-textBody font-light leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
