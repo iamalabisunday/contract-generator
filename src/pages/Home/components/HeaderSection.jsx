@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import { ButtonHeader } from "../../../components/Button";
 import Logo from "../../../assets/icons/Design system/Frame 2147229974.svg";
 
+
+// Header Link
+function HeaderLink({ to, text }) {
+    return (
+        <Link to={to} className="hover:text-primary">{text}</Link>
+    )
+}
+
 export default function HeaderSection() {
     return (
         <section className="py-16 sm:py-24 lg:py-6 bg-primaryLighter">
@@ -9,10 +17,10 @@ export default function HeaderSection() {
                 <div className="flex items-center justify-between">
                     <img src={Logo} alt="Logo" className="w-32" />
                     <div className="flex items-center gap-8 font-light text-sm text-textBody">
-                        <Link to="/dashboard" className="hover:text-primary">Pricing</Link>
-                        <Link to="/dashboard" className="hover:text-primary">Features</Link>
-                        <Link to="/dashboard" className="hover:text-primary">FAQ</Link>
-                        <Link to="/dashboard" className="hover:text-primary">Template</Link>
+                        <HeaderLink to="/dashboard" text="Pricing" />
+                        <HeaderLink to="/dashboard" text="Features" />
+                        <HeaderLink to="/dashboard" text="FAQ" />
+                        <HeaderLink to="/dashboard" text="Template" />
                         <ButtonHeader btn="Get Started" to="/dashboard" />
                     </div>
                 </div>
@@ -20,3 +28,4 @@ export default function HeaderSection() {
         </section>
     )
 }
+
