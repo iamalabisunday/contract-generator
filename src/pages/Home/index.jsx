@@ -1,7 +1,7 @@
 import HeroSection from "./components/HeroSection";
 import HeaderSection from "./components/HeaderSection";
 import TrustedSection from "./components/TrustedSection";
-// import FeaturesSection from "./components/FeaturesSection";
+import FeaturesSection from "./components/FeaturesSection";
 // import HowItWorksSection from "./components/HowItWorksSection";
 // import PricingSection from "./components/PricingSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
@@ -15,7 +15,7 @@ export default function Home() {
       <HeaderSection />
       <HeroSection />
       <TrustedSection />
-      {/* <FeaturesSection /> */}
+      <FeaturesSection />
       {/* <HowItWorksSection />*/}
       {/* <PricingSection /> */}
       {/* <TestimonialsSection /> */}
