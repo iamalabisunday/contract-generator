@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "../../../assets/icons/whiteLogo.svg";
 import { IoLogoLinkedin, IoLogoInstagram, IoLogoFacebook } from "react-icons/io5";
 
 export default function Footer() {
@@ -7,14 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
           <div className="mb-8 md:mb-0">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white font-light text-xl">
-                Q
-              </div>
-              <span className="text-xl font-medium text-white tracking-wide">
-                Quickdraft
-              </span>
-            </div>
+            <img src={Logo} alt="Logo" className="w-36 mb-4" />
             <p className="text-white/80 font-light tracking-wide">
               Professional contracts made simple
             </p>
