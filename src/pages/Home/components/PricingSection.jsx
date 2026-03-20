@@ -1,102 +1,139 @@
+import { IoCheckmarkOutline, IoCloseCircleOutline } from "react-icons/io5";
+
+const plans = [
+  {
+    name: "Pay Per Contract",
+    meta: "Perfect for one-time needs",
+    price: "$29",
+    period: "/contract",
+    subprice: "per contract",
+    highlight: false,
+    buttonText: "Subscribe",
+    features: [
+      { text: "Single contract generation", included: true },
+      { text: "All template access", included: true },
+      { text: "PDF & Word download", included: true },
+      { text: "Email support", included: true },
+      { text: "Contract history", included: false },
+      { text: "Team collaboration", included: false },
+      { text: "API access", included: false }
+    ]
+  },
+  {
+    name: "Monthly Plan",
+    meta: "Perfect for ongoing needs",
+    price: "$49",
+    period: "/month",
+    subprice: "per month",
+    highlight: true,
+    buttonText: "Subscribe",
+    features: [
+      { text: "Single contract generation", included: true },
+      { text: "All template access", included: true },
+      { text: "PDF & Word download", included: true },
+      { text: "Email support", included: true },
+      { text: "Contract history", included: true },
+      { text: "Priority support", included: true },
+      { text: "Team collaboration", included: true },
+      { text: "API access", included: false }
+    ]
+  },
+  {
+    name: "Enterprise",
+    meta: "For large organizations",
+    price: "Custom",
+    period: "",
+    subprice: "",
+    highlight: false,
+    buttonText: "Subscribe",
+    features: [
+      { text: "Single contract generation", included: true },
+      { text: "All template access", included: true },
+      { text: "PDF & Word download", included: true },
+      { text: "Email support", included: true },
+      { text: "Contract history", included: true },
+      { text: "Priority support", included: true },
+      { text: "Team collaboration", included: true },
+      { text: "API access", included: true }
+    ]
+  }
+];
+
 export default function PricingSection() {
-    // #region agent log
-    fetch('http://127.0.0.1:7840/ingest/783476b0-ecb3-43f0-b6aa-bc82e28b0e4a', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'b717b5' }, body: JSON.stringify({ sessionId: 'b717b5', runId: 'pre-debug', hypothesisId: 'H_pricing_Link_SectionHeading', location: 'src/pages/Home/components/PricingSection.jsx', message: 'PricingSection function invoked (before JSX)', data: {}, timestamp: Date.now() }) }).catch(() => {});
-    // #endregion
-    const plans = [
-      {
-        name: "Starter",
-        price: "$0",
-        meta: "For exploring",
-        cta: "Start free",
-        highlight: false,
-        bullets: [
-          "Draft basic contract outlines",
-          "Edit generated sections",
-          "Export as outline",
-        ],
-      },
-      {
-        name: "Pro",
-        price: "$12",
-        meta: "For serious drafting",
-        cta: "Go Pro",
-        highlight: true,
-        bullets: [
-          "More structured clause options",
-          "Faster draft iterations",
-          "Priority template library",
-        ],
-      },
-      {
-        name: "Team",
-        price: "$29",
-        meta: "For organizations",
-        cta: "Contact sales",
-        highlight: false,
-        bullets: [
-          "Shared reusable templates",
-          "Standardized contract sections",
-          "Team onboarding",
-        ],
-      },
-    ];
-  
-    return (
-      <section className="bg-white py-16 sm:py-24">
-        <SectionHeading
-          kicker="PRICING"
-          title="Plans that scale with you"
-          subtitle="Choose a plan that matches your drafting pace. Upgrade any time."
-        />
-  
-        <div className="mx-auto mt-10 grid max-w-6xl gap-4 px-4 md:grid-cols-3">
-          {plans.map((p) => (
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="mx-auto max-w-7xl flex flex-col items-center">
+        {/* Header */}
+        <div className="text-center mb-16 max-w-2xl flex flex-col items-center">
+          <span className="text-primary text-[13px] tracking-wide font-medium px-4 py-1.5 rounded-lg mb-4">
+            Pricing
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-light text-textHeader mb-3 tracking-tight">
+            Transparent Pricing, No Hidden Fees
+          </h2>
+          <p className="text-lg text-textBody font-light">
+            Choose the plan that fits your needs
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full items-stretch">
+          {plans.map((p, index) => (
             <div
-              key={p.name}
-              className={`rounded-2xl border bg-white p-6 shadow-sm ${
-                p.highlight ? "border-[#6733ff]/40" : "border-black/5"
-              }`}
+              key={index}
+              className={`bg-white rounded-md p-10 flex flex-col shadow-sm ${p.highlight ? "border border-primary scale-[1.02] shadow-md z-10" : "border border-borderLight"
+                }`}
             >
-              {p.highlight ? (
-                <div className="inline-flex rounded-full bg-[#6733ff] px-3 py-1 text-xs font-semibold text-white">
-                  Most Popular
-                </div>
-              ) : null}
-              <div className="mt-4 text-xl font-bold text-[#16181D]">
-                {p.name}
+              <div>
+                <h3 className="text-2xl font-light text-textHeader">{p.name}</h3>
+                <p className="text-textBody font-light mt-1">{p.meta}</p>
+
+                {p.price === "Custom" ? (
+                  <div className="text-[2.75rem] font-serif text-textHeader my-8">
+                    {p.price}
+                  </div>
+                ) : (
+                  <div className="my-8">
+                    <div className="flex items-baseline">
+                      <span className="text-[2.75rem] font-serif text-textHeader mr-1">{p.price}</span>
+                      <span className="text-2xl font-serif text-textHeader">{p.period}</span>
+                    </div>
+                    <div className="text-textBody font-light mt-1">{p.subprice}</div>
+                  </div>
+                )}
               </div>
-              <div className="mt-2 flex items-end gap-2">
-                <div className="text-4xl font-bold text-[#16181D]">{p.price}</div>
-                <div className="pb-1 text-sm font-semibold text-[#7D7F81]">
-                  / mo
-                </div>
-              </div>
-              <div className="mt-1 text-sm font-semibold text-[#7D7F81]">
-                {p.meta}
-              </div>
-  
-              <ul className="mt-5 space-y-3">
-                {p.bullets.map((b) => (
-                  <li key={b} className="flex gap-2 text-sm text-[#323334]">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[#6733ff]" />
-                    {b}
+
+              <ul className="mt-2 space-y-4 mb-10 flex-grow">
+                {p.features.map((f, i) => (
+                  <li
+                    key={i}
+                    className={`flex items-center gap-3 ${f.included ? "text-textParagraph" : "text-textBody opacity-60"
+                      }`}
+                  >
+                    {f.included ? (
+                      <IoCheckmarkOutline className="text-primary text-xl flex-shrink-0" />
+                    ) : (
+                      <IoCloseCircleOutline className="text-textBody text-[1.125rem] flex-shrink-0" />
+                    )}
+                    <span className="font-light text-[1.05rem]">{f.text}</span>
                   </li>
                 ))}
               </ul>
-  
-              <Link
-                to={p.highlight ? "/dashboard" : "/login"}
-                className={`mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold ${
-                  p.highlight
-                    ? "bg-[#6733ff] text-white hover:bg-[#3400cc]"
-                    : "border border-black/10 bg-white text-[#16181D] hover:bg-[#F7F5FF]"
-                }`}
-              >
-                {p.cta}
-              </Link>
+
+              <div className="mt-auto flex justify-center">
+                <button
+                  className={`cursor-pointer px-10 py-3 rounded-lg text-sm font-medium transition-colors w-10/12 md:w-full lg:w-3/4 ${p.highlight
+                    ? "bg-primary text-white hover:bg-primaryDark"
+                    : "bg-[#2b2b2b] text-white hover:bg-black"
+                    }`}
+                >
+                  {p.buttonText}
+                </button>
+              </div>
             </div>
           ))}
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}
