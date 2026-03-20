@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ButtonHeader } from "../../../components/Button";
-import Logo from "../../../assets/icons/Design system/Frame 2147229974.svg";
+import Logo from "../../../assets/icons/logo.svg";
 
 // Header Link
 function HeaderLink({ to, text }) {
