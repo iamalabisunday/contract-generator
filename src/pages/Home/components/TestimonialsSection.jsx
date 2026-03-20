@@ -1,62 +1,69 @@
 
+import { IoStar } from "react-icons/io5";
+
+const testimonials = [
+  {
+    rating: 5,
+    text: "QuickDraft saved me thousands in legal fees. The templates are comprehensive and easy to customize.",
+    name: "Sunday Alabi",
+    role: "Software Engineer"
+  },
+  {
+    rating: 5,
+    text: "We use this for all our employment contracts. It's fast, reliable, and our legal team approved it.",
+    name: "Fajimi Orinoluwa",
+    role: "UI/UX Designer"
+  },
+  {
+    rating: 5,
+    text: "The NDA and service agreement templates are perfect for my consulting business. Highly recommend!",
+    name: "Bieme Thomas",
+    role: "Frontend Engineer"
+  }
+];
+
 export default function TestimonialsSection() {
-    // #region agent log
-    fetch('http://127.0.0.1:7840/ingest/783476b0-ecb3-43f0-b6aa-bc82e28b0e4a', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'b717b5' }, body: JSON.stringify({ sessionId: 'b717b5', runId: 'pre-debug', hypothesisId: 'H_testimonials_SectionHeading', location: 'src/pages/Home/components/TestimonialsSection.jsx', message: 'TestimonialsSection function invoked (before JSX)', data: {}, timestamp: Date.now() }) }).catch(() => {});
-    // #endregion
-    const items = [
-      {
-        name: "Ava R.",
-        role: "Freelance Designer",
-        quote:
-          "Contract Generator helped me draft a clean scope and payment section in minutes. It’s easy to revise before I send it to clients.",
-      },
-      {
-        name: "Noah S.",
-        role: "Startup Founder",
-        quote:
-          "The structured clauses make it faster to review agreements. I can reuse wording across deals and stay consistent.",
-      },
-      {
-        name: "Mia K.",
-        role: "Product Manager",
-        quote:
-          "I like that it generates an outline I can actually edit. The language reads clearly and keeps negotiations on track.",
-      },
-      {
-        name: "Ethan T.",
-        role: "Operations Lead",
-        quote:
-          "Quick drafts, predictable sections, and the ability to customize. This replaced a big chunk of my manual contract work.",
-      },
-    ];
-  
-    return (
-      <section className="bg-[#F7F5FF] py-16 sm:py-24">
-        <SectionHeading
-          kicker="TESTIMONIALS"
-          title="Loved by teams that move fast"
-          subtitle="Real feedback from people using Contract Generator to draft, review, and export."
-        />
-  
-        <div className="mx-auto mt-10 grid max-w-6xl gap-4 px-4 md:grid-cols-2">
-          {items.map((t) => (
+  return (
+    <section className="bg-primaryLight py-24 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="mx-auto max-w-7xl flex flex-col items-center">
+        {/* Header */}
+        <div className="text-center mb-16 max-w-2xl flex flex-col items-center">
+          <span className="bg-primaryDark text-white text-[13px] tracking-wide font-medium px-4 py-1.5 rounded-lg mb-6 shadow-sm">
+            Testimonials
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-textHeader mb-4 tracking-tight">
+            Loved by Thousands of Users
+          </h2>
+          <p className="text-lg text-textParagraph font-light">
+            See what our customers have to say about ContractGen
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+          {testimonials.map((t, index) => (
             <div
-              key={t.name}
-              className="rounded-2xl border border-black/5 bg-white p-6"
+              key={index}
+              className="bg-white rounded-xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-sm font-bold text-[#16181D]">{t.name}</div>
-                  <div className="mt-1 text-xs font-semibold text-[#7D7F81]">
-                    {t.role}
-                  </div>
+              <div>
+                <div className="flex text-[#ffc107] mb-6">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <IoStar key={i} className="text-2xl mr-1" />
+                  ))}
                 </div>
-                <div className="h-10 w-10 rounded-xl bg-[#6733ff]/10" />
+                <p className="text-textParagraph text-lg font-light leading-relaxed mb-8">
+                  "{t.text}"
+                </p>
               </div>
-              <p className="mt-4 text-[#323334]">{t.quote}</p>
+              <div>
+                <h4 className="font-medium text-textHeader text-xl mb-0.5">{t.name}</h4>
+                <p className="text-textBody font-light">{t.role}</p>
+              </div>
             </div>
           ))}
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}
