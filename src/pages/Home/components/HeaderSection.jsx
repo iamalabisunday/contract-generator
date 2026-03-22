@@ -16,11 +16,11 @@ export default function HeaderSection() {
                 <div className="flex items-center justify-between">
                     <img src={Logo} alt="Logo" className="w-32" />
                     <div className="flex items-center gap-8 font-light text-sm text-textBody">
-                        <HeaderLink to="/dashboard" text="Pricing" />
-                        <HeaderLink to="/dashboard" text="Features" />
-                        <HeaderLink to="/dashboard" text="FAQ" />
-                        <HeaderLink to="/dashboard" text="Template" />
-                        <ButtonHeader btn="Get Started" to="/dashboard" />
+                        <HeaderLink to="/overview" text="Pricing" />
+                        <HeaderLink to="/overview" text="Features" />
+                        <HeaderLink to="/overview" text="FAQ" />
+                        <HeaderLink to="/overview" text="Template" />
+                        <ButtonHeader btn="Get Started" to="/overview" />
                     </div>
                 </div>
             </div>

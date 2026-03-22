@@ -21,8 +21,8 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button btn="Generate Contract" to="/dashboard" />
-              <ButtonOutline btn="View Templates" to="/dashboard" />
+              <Button btn="Generate Contract" to="/overview" />
+              <ButtonOutline btn="View Templates" to="/overview" />
             </div>
           </div>
 

@@ -4,10 +4,9 @@ import Sidebar from "../../components/Sidebar.jsx";
 
 export default function MainLayout() {
   return (
-    <div>
+    <div className="flex h-screen">
       <Sidebar />
-      {/* Navbar and Main section */}
-      <div>
+      <div className="flex-1 overflow-y-auto">
         <Navbar />
         <main>
           <Outlet />

@@ -5,6 +5,15 @@ import Overview from "../pages/Overview/index.jsx";
 import LogIn from "../layouts/AuthLayout/Login.jsx";
 import SignUp from "../layouts/AuthLayout/SignUp.jsx";
 import Home from "../pages/Home/index.jsx";
+import Signature from "../pages/Signature/index.jsx";
+import Contracts from "../pages/Contracts/index.jsx";
+import Templates from "../pages/Templates/index.jsx";
+import History from "../pages/History/index.jsx";
+import Billing from "../pages/Billing/index.jsx";
+import Account from "../pages/Account/index.jsx";
+import Settings from "../pages/Settings/index.jsx";
+import Support from "../pages/Support/index.jsx";
+
 
 export const router = createBrowserRouter([
   // 1. Landing Page Section
@@ -29,14 +38,19 @@ export const router = createBrowserRouter([
     ],
   },
 
-  // 3. Dashboard/App Section
+  // 3. Dashboard Section
   {
     Component: MainLayout,
     children: [
-      {
-        path: "dashboard",
-        Component: Overview,
-      },
+      { path: "overview", Component: Overview },
+      { path: "contracts", Component: Contracts },
+      { path: "templates", Component: Templates },
+      { path: "signature", Component: Signature },
+      { path: "history", Component: History },
+      { path: "billing", Component: Billing },
+      { path: "account", Component: Account },
+      { path: "settings", Component: Settings },
+      { path: "support", Component: Support }
     ],
   },
 ]);
