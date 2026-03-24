@@ -5,7 +5,7 @@ import { IoDocumentOutline } from "react-icons/io5";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-primaryLighter py-16 sm:py-24 lg:py-32">
+    <section className="relative w-full overflow-hidden bg-primaryLighter sm:py-24 md:py-16 md:pb-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-8">
 
