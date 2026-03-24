@@ -4,9 +4,21 @@ import Logo from "../../../assets/icons/logo.svg";
 
 // Header Link
 function HeaderLink({ to, text }) {
+    const handleScroll = (e) => {
+        if (to.startsWith("#")) {
+            e.preventDefault();
+            const element = document.getElementById(to.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
+
     return (
-        <Link to={to} className="hover:text-primary">{text}</Link>
-    )
+        <Link to={to} onClick={handleScroll} className="hover:text-primary">
+            {text}
+        </Link>
+    );
 }
 
 export default function HeaderSection() {
@@ -16,10 +28,10 @@ export default function HeaderSection() {
                 <div className="flex items-center justify-between">
                     <img src={Logo} alt="Logo" className="w-32" />
                     <div className="flex items-center gap-8 font-light text-sm text-textBody">
-                        <HeaderLink to="/overview" text="Pricing" />
-                        <HeaderLink to="/overview" text="Features" />
-                        <HeaderLink to="/overview" text="FAQ" />
-                        <HeaderLink to="/overview" text="Template" />
+                        <HeaderLink to="#pricing" text="Pricing" />
+                        <HeaderLink to="#features" text="Features" />
+                        <HeaderLink to="#faq" text="FAQ" />
+                        <HeaderLink to="#template" text="Template" />
                         <ButtonHeader btn="Get Started" to="/overview" />
                     </div>
                 </div>

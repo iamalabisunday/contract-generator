@@ -32,7 +32,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 w-full">
+    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 w-full">
       <div className="mx-auto max-w-3xl flex flex-col items-center">
         {/* Header */}
         <div className="text-center mb-16 flex flex-col items-center">

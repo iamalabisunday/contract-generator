@@ -48,7 +48,7 @@ const templates = [
 
 export default function TemplateSection() {
   return (
-    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 w-full">
+    <section id="template" className="bg-white py-20 px-4 sm:px-6 lg:px-8 w-full">
       <div className="mx-auto max-w-7xl flex flex-col items-center">
         {/* Header */}
         <div className="text-center mb-16 max-w-2xl flex flex-col items-center">

@@ -1,9 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 
 export default function HomeNavbar() {
-  // #region agent log
-  fetch('http://127.0.0.1:7840/ingest/783476b0-ecb3-43f0-b6aa-bc82e28b0e4a', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'b717b5' }, body: JSON.stringify({ sessionId: 'b717b5', runId: 'pre-debug', hypothesisId: 'H_homenavbar_nested_outlet', location: 'src/pages/Home/components/HomeNavbar/index.jsx', message: 'HomeNavbar function invoked', data: {}, timestamp: Date.now() }) }).catch(() => {});
-  // #endregion
   return (
     <div className="min-h-screen bg-[#F7F5FF]">
       <header className="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur">

@@ -42,7 +42,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="bg-primaryLighter py-20 px-4 sm:px-6 lg:px-8 w-full">
+    <section id="features" className="bg-primaryLighter py-20 px-4 sm:px-6 lg:px-8 w-full">
       <div className="mx-auto max-w-7xl flex flex-col items-center">
         {/* Header */}
         <div className="text-center mb-16 max-w-2xl">
