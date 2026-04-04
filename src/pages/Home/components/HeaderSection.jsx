@@ -32,7 +32,7 @@ export default function HeaderSection() {
                         <HeaderLink to="#features" text="Features" />
                         <HeaderLink to="#faq" text="FAQ" />
                         <HeaderLink to="#template" text="Template" />
-                        <ButtonHeader btn="Get Started" to="/overview" />
+                        <ButtonHeader btn="Get Started" to="/login" />
                     </div>
                 </div>
             </div>

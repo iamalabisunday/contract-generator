@@ -2,8 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout/index.jsx";
 import MainLayout from "../layouts/MainLayout/index.jsx";
 import Overview from "../pages/Overview/index.jsx";
-import LogIn from "../layouts/AuthLayout/Login.jsx";
-import SignUp from "../layouts/AuthLayout/SignUp.jsx";
+import LogIn from "../layouts/AuthLayout/pages/login.jsx";
+import SignUp from "../layouts/AuthLayout/pages/signup.jsx";
+import Verify from "../layouts/AuthLayout/pages/verify.jsx";
 import Home from "../pages/Home/index.jsx";
 import Signature from "../pages/Signature/index.jsx";
 import Contracts from "../pages/Contracts/index.jsx";
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "signup",
         Component: SignUp,
+      },
+      {
+        path: "verify",
+        Component: Verify,
       },
     ],
   },
