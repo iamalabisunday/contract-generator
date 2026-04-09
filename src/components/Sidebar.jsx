@@ -53,14 +53,14 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-[260px] h-screen bg-background border-r border-borderLight flex flex-col py-6 shadow-sm">
-      <div className="px-6 mb-8">
+    <aside className="w-[260px] h-screen bg-background border-r border-borderLight flex flex-col pt-6 shadow-sm">
+      <div className="px-6 mb-6">
         <Link to="/">
           <img src={Logo} alt="Quickdraft" className="h-8" />
         </Link>
       </div>
 
-      <div className="px-6 mb-8">
+      <div className="px-6 mb-6">
         <label className="flex items-center gap-2 bg-background border border-borderLight rounded-lg px-3 py-2 text-textBody focus-within:border-primary focus-within:ring-1 focus-within:ring-primaryLight transition-all cursor-text">
           <LuSearch className="text-lg text-textBody min-w-[18px]" />
           <input
@@ -76,7 +76,7 @@ export default function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="mb-8">
+        <div className="mb-6">
           <p className="ml-1 px-6 text-sm text-textBody mb-2 font-medium">Main Menu</p>
           <nav className="flex flex-col">
             {mainMenu.map((item) => (
@@ -95,7 +95,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="mt-auto px-6 pt-6 border-t border-borderLighter">
+      <div className="mt-auto px-6 py-2 border-t border-borderLighter">
         <div className="flex items-center justify-between cursor-pointer hover:bg-backgroundSecondary p-2 -mx-2 rounded-xl transition-colors group">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-primaryLighter text-primary flex items-center justify-center font-medium text-sm">

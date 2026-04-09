@@ -2,7 +2,7 @@ import { FiSearch, FiBell } from "react-icons/fi";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-8 py-4 w-full border-b border-backgroundTertiary">
+    <nav className="flex items-center justify-between px-4 py-3 w-full border-b border-backgroundTertiary">
       {/* Search Bar */}
       <div className="relative flex items-center w-[380px] text-gray-400">
         <FiSearch className="absolute left-4 w-5 h-5" />
